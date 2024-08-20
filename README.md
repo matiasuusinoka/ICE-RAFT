@@ -30,6 +30,8 @@ You can demo a trained model on a sequence of frames
 python demo.py --model=models/raft-things.pth --path=demo-frames
 ```
 
+Although the model can be run on CPUs, the user is adviced to use GPUs. This is to avoid program crashing due to on-chip memory limitations.
+
 ## Arguments
 
 ### Displacement_Production.py
