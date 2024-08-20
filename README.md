@@ -1,8 +1,18 @@
 # ICE-RAFT
 <img src="FlowChart_Visualization.png">
 
-Learning-based optical flow tool for full-field analysis of deformation in radar imagery. Work builds on the original RAFT 
+Deep learning-based optical flow tool for full-field analysis of deformation in radar imagery. Work builds on the original work of RAFT [[1]](#1) and the idea of differentiable warm-starting presented with E-RAFT [[2]](#2).
 
+## References
+<a id="1">[1]</a> 
+Teed, Zachary, and Jia Deng. (2020).
+"Raft: Recurrent all-pairs field transforms for optical flow."
+Computer Vision–ECCV 2020: 16th European Conference, Glasgow, UK, August 23–28, 2020, Proceedings, Part II 16. Springer International Publishing.
+
+<a id="2">[2]</a> 
+Mathias Gehrig, Mario Millhausler, Daniel Gehrig, and Davide Scaramuzza. (2021).
+"E-RAFT: Dense Optical Flow from Event Cameras."
+International Conference on 3D Vision (3DV). IEEE.
 
 
 When using this code in research, please cite the following publication:
