@@ -86,4 +86,4 @@ if __name__ == '__main__':
     day_start, day_end = args.day_range
     
     with Pool(processes=1) as p:
-        p.map(displacement_production, np.arange(day_start, day_end), args)
+        p.map(end_to_end, np.arange(day_start, day_end), args)
