@@ -1,6 +1,8 @@
+import numpy as np
 import torchvision.transforms.functional as F
 from torch import nn, Tensor
 from typing import Optional, Tuple, Union
+from scipy import interpolate
 import torch
 
 class OpticalFlow(nn.Module):
@@ -35,8 +37,8 @@ def forward_interpolate(flow):
     return torch.from_numpy(np.stack([flow_x, flow_y], axis=0)).float()
 
 
-def bf_stepping(step, conscale):
-    if step < 3: backstep,frontstep = 0, conscale
-    elif step > len(filenames)-(conscale-1): backstep,frontstep = len(filenames) - (conscale-1), len(filenames) - 1
+def bf_stepping(step, conscale, num_files):
+    if step < conscale/2: backstep,frontstep = 0, conscale
+    elif step > num_files-(conscale-1): backstep,frontstep = num_files - (conscale-1), num_files - 1
     else: backstep, frontstep = step - int(conscale/2), step + int(conscale/2)
     return backstep, frontstep
