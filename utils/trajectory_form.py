@@ -15,22 +15,29 @@ def bilinear_interpolation(x_in, y_in, f_in, x_out, y_out):
             f_out[j, i] = ((f11*(x2-x)*(y2-y)+f21*(x-x1)*(y2-y)+f12*(x2-x)*(y-y1)+f22*(x-x1)*(y-y1))/((x2-x1)*(y2-y1)))
     return f_out
 
-def form_trajectories(displacement_map):
-    x, y = np.arange(0,displacement_map.shape[2]), np.arange(0,displacement_map.shape[3])
-    x2, y2 = np.linspace(0, displacement_map.shape[2], displacement_map.shape[2]*10), np.linspace(0, displacement_map.shape[3], displacement_map.shape[3]*10)
+def form_trajectories(displacement_map, pixel_to_metric, resolution_ratio):
+    
+    # We use the scaling factor to relate the trajectories back to the scale of the original radar data
+    scaling_factor = pixel_to_metric * resolution_ratio
+    
+    x, y = np.arange(0,displacement_map.shape[2])*scaling_factor, np.arange(0,displacement_map.shape[3])*scaling_factor
+    
+    interpolation_factor = 10
+    x2, y2 = np.linspace(0, displacement_map.shape[2], displacement_map.shape[2]*interpolation_factor)*scaling_factor, np.linspace(0, displacement_map.shape[3], displacement_map.shape[3]*interpolation_factor)*scaling_factor
+    
     X, Y = np.meshgrid(x, y)
 
-    coords_x, coords_y = ((X + displacement_map[0,0])*10), ((Y + displacement_map[0,1])*10)
+    coords_x, coords_y = ((X + displacement_map[0,0])), ((Y + displacement_map[0,1]))
     trajectories = np.expand_dims(np.stack((coords_x, coords_y)),axis=0)
 
     for t in range(1,displacement_map.shape[0]):
-        disp_x, disp_y = bilinear_interpolation(x, y, displacement_map[t,0]*10, x2, y2), bilinear_interpolation(x, y, displacement_map[t,1]*10, x2, y2)
+        disp_x, disp_y = bilinear_interpolation(x, y, displacement_map[t,0], x2, y2), bilinear_interpolation(x, y, displacement_map[t,1], x2, y2)
 
         for xes in range(coords_x.shape[0]):
             for yes in range(coords_x.shape[1]):
                 try:
-                    coords_x[xes,yes] += disp_x[int(coords_x[xes,yes]),int(coords_y[xes,yes])]
-                    coords_y[xes,yes] += disp_y[int(coords_x[xes,yes]),int(coords_y[xes,yes])]
+                    coords_x[xes,yes] += disp_x[int(coords_x[xes,yes] / resolution_ratio),int(coords_y[xes,yes] / resolution_ratio)]
+                    coords_y[xes,yes] += disp_y[int(coords_x[xes,yes] / resolution_ratio),int(coords_y[xes,yes] / resolution_ratio)]
                 except: continue
 
         del disp_x, disp_y
