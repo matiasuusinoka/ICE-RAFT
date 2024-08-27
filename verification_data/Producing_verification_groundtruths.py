@@ -107,10 +107,10 @@ def generate_groundtruth(args):
 if __name__ == '__main__':
                
     parser = argparse.ArgumentParser()
-    parser.add_argument('--motion_field', help="Choose which motion field to produce. The option are 'rigidbody_rotated', 'uniform_shear', 'uniform_shear_rotated', 'localized_shear', 'localized_shear_rotated'", required=True)
-    parser.add_argument('--save_path', default='ground_truth', help="Give the folder for the save file")
+    parser.add_argument('--motion_field', help="Choose which motion field to produce. The option are 'rigidbody_rotated', 'uniform_shear', 'uniform_shear_rotated', 'localized_shear', 'localized_shear_rotated'.", required=True)
+    parser.add_argument('--save_path', default='ground_truth', help="Give the folder for the save file.")
     parser.add_argument('--scale', help="Choose the scale of the displacements from either 'small' or 'large.", required=True)
-    parser.add_argument('--num_tsteps', default=10, help="Choose the number of timesteps.")
+    parser.add_argument('--num_tsteps', default=10, help="Choose the number of timesteps considered in the verification.")
     args = parser.parse_args()
            
     if not os.path.isdir(f'./{args.save_path}/{args.scale}/'):
