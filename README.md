@@ -33,7 +33,12 @@ python3 Trajectories_Strains_Deformation.py --source_file demo_data/displacement
 ```
 With larger datasets the processing is adviced to be divided for parallelization with the multiprocessing library as indicated in the code.
 
-Alternatively, the shell scripts similar to 'Initialize_Deformations.sh' and 'Initialize_Displacements.sh' can be run. The example scripts have been tested on Slurm workload manager and with NVIDIA V100 GPUs.
+Alternatively, the shell scripts similar to Initialize_Deformations.sh and Initialize_Displacements.sh can be run. The example scripts have been tested on Slurm workload manager and with NVIDIA V100 GPUs.
+
+## Verification
+The algorithm can be tested agains ground truth trajectories generated with Producing_verification_groundtruths.py. In Uusinoka, et al. (2024) the performance of the algorithm was tested based on end-point-error estimates between the ground truth and algorithm estimate trajectories.
+
+The required files for similar performance testing can be found in the 'verification_data' folder.
 
 
 ## Arguments
