@@ -66,3 +66,13 @@ Alternatively, the shell scripts similar to 'Initialize_Deformations.sh' and 'In
 ```--use_finite_strain``` : The deformations will either use infinitesimal or finite strain. Argument "TRUE" corresponds to using finite strains.
 
 ```--remove_displacements``` : Removing files in path data/displacements/ will save memory.
+
+
+### verification_data.Producing_verification_groundtruths.py
+```--motion_field``` : Choose which motion field to produce. The option are 'rigidbody_rotated', 'uniform_shear', 'uniform_shear_rotated', 'localized_shear', 'localized_shear_rotated'.
+
+```--save_path``` : Give the folder for the save file.
+  
+```--scale``` : Choose the scale of the displacements from either 'small' or 'large.
+
+```--num_tsteps``` : Choose the number of timesteps considered in the verification.
