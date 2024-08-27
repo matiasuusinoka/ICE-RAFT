@@ -14,7 +14,7 @@ When using this code in research, please cite the following publication:
 ```
 
 ## Requirements
-The algorithm requires mainly common libraries such as Numpy, Scipy, PyTorch, Torchvision and Numba. An Anaconda environment can easily be installed based on the provided .yml file:
+The algorithm requires mainly common libraries such as Numpy, Scipy, PyTorch, Torchvision and Numba. A conda environment with the appropriate release versions can easily be installed based on the provided .yml file:
 ```Shell
 conda env create -f environment.yml
 ```
@@ -33,7 +33,7 @@ python3 Trajectories_Strains_Deformation.py --source_file demo_data/displacement
 ```
 With larger datasets the processing is adviced to be divided for parallelization with the multiprocessing library as indicated in the code.
 
-Alternatively, the shell scripts similar to 'Initialize_Deformations.sh' and 'Initialize_Displacements.sh' can be run. The example scripts have been tested with Slurm workload manager on the CSC supercomputer Puhti.
+Alternatively, the shell scripts similar to 'Initialize_Deformations.sh' and 'Initialize_Displacements.sh' can be run. The example scripts have been tested on Slurm workload manager and with NVIDIA V100 GPUs.
 
 
 ## Arguments
