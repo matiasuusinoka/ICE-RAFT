@@ -46,7 +46,9 @@ def displacements_to_strains(args):
 
         for t in range(0, trajectories.shape[0]):
 
-            u = (trajectories[t]-trajectories[0])*args.pixel_to_metric
+            # Calculating strain tensor so that we need displacement from original coordinates.
+            # Strain rates are defined by the difference in strain tensor (defined later in "epsilon = np.diff(epsilonfull,axis=0)").
+            u = (trajectories[t]-trajectories[0])
             F = np.array([[DeformationGradient_quadrilateral(u[:,x:x+m,y:y+m], B) for y in range(0,u.shape[1]-m,m-1)] for x in range(0,u.shape[2]-m,m-1)])
             del u
 
