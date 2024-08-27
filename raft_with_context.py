@@ -14,6 +14,11 @@ from torchvision.models._api import register_model, Weights, WeightsEnum
 from torchvision.models._utils import handle_legacy_interface
 from torchvision.models.optical_flow._utils import grid_sample, make_coords_grid, upsample_flow
 
+# This implementation is build by adapting the source code provided by 
+# https://github.com/princeton-vl/RAFT
+# https://github.com/uzh-rpg/E-RAFT/tree/main
+# https://pytorch.org/vision/main/models/raft.html
+
 class ResidualBlock(nn.Module):
     def __init__(self, in_channels, out_channels, *, norm_layer, stride=1, always_project: bool = False):
         super().__init__()
