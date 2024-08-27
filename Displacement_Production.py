@@ -25,6 +25,8 @@ def displacement_production(args):
     device = device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
     if not args.custom_model:
+        # For demoing it is simplest to make use of the default RAFT model with large weights provide by PyTorch
+        # https://pytorch.org/vision/stable/models/generated/torchvision.models.optical_flow.raft_large.html#torchvision.models.optical_flow.raft_large
         model = raft_context_model(weights=Raft_Large_Weights.DEFAULT, progress=False)
     else: 
         model.load_state_dict(torch.load(args.model))
