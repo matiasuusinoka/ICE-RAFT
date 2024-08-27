@@ -26,17 +26,17 @@ The algorithm can be demoed by first running Displacement_Production.py with app
 ```Shell
 python3 Displacement_Production.py --update_iterations 30 --image_resolution 1000 --result_file_name demoing_iceraft
 ```
-Although the model can be run on CPUs, the user is adviced to use GPUs. This is to avoid program crashing due to on-chip memory limitations.
+Although the model can be run on CPUs, the user is advised to use GPUs. This is to avoid program crashing due to on-chip memory limitations.
 After producing the displacement fields, Trajectories_Strains_Deformation.py can be run (on CPUs) similarly, e.g.:
 ```Shell
 python3 Trajectories_Strains_Deformation.py --source_file demo_data/displacements/demoing_iceraft.npy --saved_quantities all --pixel_to_metric 10 --resolution_ratio 1
 ```
-With larger datasets the processing is adviced to be divided for parallelization with the multiprocessing library as indicated in the code.
+With larger datasets the processing is advised to be divided for parallelization with the multiprocessing library as indicated in the code.
 
-Alternatively, the shell scripts similar to Initialize_Deformations.sh and Initialize_Displacements.sh can be run. The example scripts have been tested on Slurm workload manager and with NVIDIA V100 GPUs.
+Alternatively, shell scripts similar to Initialize_Deformations.sh and Initialize_Displacements.sh can be run. The example scripts have been tested on Slurm workload manager and with NVIDIA V100 GPUs.
 
 ## Verification
-The algorithm can be tested agains ground truth trajectories generated with Producing_verification_groundtruths.py. In Uusinoka, et al. (2024) the performance of the algorithm was tested based on end-point-error estimates between the ground truth and optical flow estimate trajectories.
+The algorithm can be tested against ground truth trajectories generated with Producing_verification_groundtruths.py. In Uusinoka, et al. (2024) the performance of the algorithm was tested based on end-point-error estimates between the ground truth and optical flow estimate trajectories.
 
 The required files for similar performance testing can be found in the 'verification_data' folder, which can be indicated with the '--image_path' argument for Displacement_Production.py. Performance testing should be done with GPUs for sufficient accuracy.
 
