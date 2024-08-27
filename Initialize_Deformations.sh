@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --account=***
+#SBATCH --account=project_***
 #SBATCH --partition=small
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
