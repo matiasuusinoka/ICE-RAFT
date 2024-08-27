@@ -17,7 +17,7 @@ When using this code in research, please cite the following publication:
 The algorithm requires mainly common libraries such as Numpy, Scipy, PyTorch, Torchvision and Numba. An Anaconda environment can easily be installed based on the provided .yml file:
 ```Shell
 conda env create -f environment.yml
-``
+```
 
 ## Demo
 ICE-RAFT can easily be used with the default models provided by [Pytorch](https://pytorch.org/vision/main/models/generated/torchvision.models.optical_flow.raft_large.html#torchvision.models.optical_flow.raft_large). Using a specific model can be indicated with the algorithm arguments.
