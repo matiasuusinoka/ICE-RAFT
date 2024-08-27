@@ -40,7 +40,7 @@ def infinit_rot(E):
     erot_x = np.sqrt(1+2*E[0,0])-1
     erot_y = np.sqrt(1+2*E[1,1])-1
     erot_xy = .5*np.arcsin(2*E[0,1]/np.sqrt((1+2*E[0,0])*(1+2*E[1,1])))
-    epsilon_rot = [[erot_x,erot_xy],[erot_xy,erot_y]]-np.identity(2)
+    epsilon_rot = [[erot_x,erot_xy],[erot_xy,erot_y]]
     return epsilon_rot
 
 def tensor_formulation(F, rotation_fixed = True):
