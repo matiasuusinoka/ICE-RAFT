@@ -4,12 +4,14 @@
 Deep learning-based optical flow tool for full-field analysis of deformation in radar imagery. This work builds upon the original work of RAFT (Teed and Deng, [2020](https://doi.org/10.1007/978-3-030-58536-5_24)) and the idea of differentiable warm-starting presented with E-RAFT (Gehrig, et al. [2021](https://doi.org/10.1109/3DV53792.2021.00030)) to consider a temporal multiresolution tree based on different temporal resolutions. The increased complexity enables higher accuracy in estimates and stability between different time steps needed in scientific analysis.
 
 
-When using this code in research, please cite the following publication:
+When using this code in research, please cite the following publication (in review):
 ```bibtex
 @InProceedings{UusinokaDeep2024,
   author = {Matias Uusinoka, Jari Haapala, and Arttu Polojärvi},
   title = {Deep learning-based optical flow in fine-scale deformation mapping of sea ice dynamics},
+  journal={Geophysical Research Letters},
   year = {2024}
+  publisher={Wiley Online Library}
 }
 ```
 
