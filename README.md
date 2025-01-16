@@ -6,11 +6,13 @@ Deep learning-based optical flow tool for full-field analysis of deformation in 
 
 When using this code in research, please cite the following publication (in review):
 ```bibtex
-@InProceedings{UusinokaDeep2024,
-  author = {Matias Uusinoka, Jari Haapala, and Arttu Polojärvi},
-  title = {Deep learning-based optical flow in fine-scale deformation mapping of sea ice dynamics},
+@article{uusinoka2025deep,
+  author = {Uusinoka, Matias and Haapala, Jari and Polojärvi, Arttu},
+  title = {Deep Learning‐Based Optical Flow in Fine‐Scale Deformation Mapping of Sea Ice Dynamics},
   journal={Geophysical Research Letters},
-  year = {2024}
+  year = {2025},
+  vol = {52},
+  doi = {10.1029/2024GL112000},
   publisher={Wiley Online Library}
 }
 ```
